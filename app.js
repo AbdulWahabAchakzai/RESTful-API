@@ -8,10 +8,21 @@ const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
 const userRoutes = require('./api/routes/user');
 
-mongoose.connect("mongodb://node-shop:<assassincreed>@node-rest-shop-6dmr8.mongodb.net/test?retryWrites=true&w=majority", {
-  useMongoClient: true
 
-});
+
+
+mongoose.connect("mongodb+srv://node-shop:nodeshop@node-rest-shop-6dmr8.mongodb.net/test?retryWrites=true&w=majority", {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+
+  }).then(() => {
+    console.log("Database Connected");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+
 mongoose.Promise = global.Promise;
 
 app.use(morgan("dev"));

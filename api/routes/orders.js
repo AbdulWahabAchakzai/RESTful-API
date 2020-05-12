@@ -98,7 +98,9 @@ router.get("/:orderId", (req, res, next) => {
 });
 
 router.delete("/:orderId", (req, res, next) => {
-  Order.remove({ _id: req.params.orderId })
+  Order.remove({
+      _id: req.params.orderId
+    })
     .exec()
     .then(result => {
       res.status(200).json({
@@ -106,7 +108,10 @@ router.delete("/:orderId", (req, res, next) => {
         request: {
           type: "POST",
           url: "http://localhost:3000/orders",
-          body: { productId: "ID", quantity: "Number" }
+          body: {
+            productId: "ID",
+            quantity: "Number"
+          }
         }
       });
     })
