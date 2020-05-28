@@ -10,7 +10,7 @@ const userRoutes = require('./api/routes/user');
 
 
 
-
+// MongoDB Cluster string connection link: "node-shop" is the name of the cluster and "nodeshop" is the password
 mongoose.connect("mongodb+srv://node-shop:nodeshop@node-rest-shop-6dmr8.mongodb.net/test?retryWrites=true&w=majority", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
@@ -45,7 +45,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes which should handle requests
+// Routes for handle requests
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
 app.use("/user", userRoutes);
